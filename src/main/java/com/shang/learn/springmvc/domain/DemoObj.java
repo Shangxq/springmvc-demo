@@ -1,4 +1,4 @@
-package com.shang.learn.springmvc.helloworld.domain;
+package com.shang.learn.springmvc.domain;
 
 import lombok.Getter;
 import lombok.Setter;

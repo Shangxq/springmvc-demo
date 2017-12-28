@@ -1,4 +1,4 @@
-package com.shang.learn.springmvc.helloworld;
+package com.shang.learn.springmvc;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;

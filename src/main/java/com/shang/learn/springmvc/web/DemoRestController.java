@@ -1,6 +1,6 @@
-package com.shang.learn.springmvc.helloworld.web;
+package com.shang.learn.springmvc.web;
 
-import com.shang.learn.springmvc.helloworld.domain.DemoObj;
+import com.shang.learn.springmvc.domain.DemoObj;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,6 +1,6 @@
-package com.shang.learn.springmvc.helloworld.web;
+package com.shang.learn.springmvc.web;
 
-import com.shang.learn.springmvc.helloworld.domain.DemoObj;
+import com.shang.learn.springmvc.domain.DemoObj;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +23,7 @@ public class DemoAnnoController {
     }
     @RequestMapping(value = "/obj",produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public String passObj(DemoObj obj,HttpServletRequest request){
+    public String passObj(DemoObj obj, HttpServletRequest request){
         return "url:"+request.getRequestURL()+"can access, obj id:"+obj.getId()+"obj name:"+ obj.getName();
     }
     @RequestMapping(value = {"name1","name2"},produces = "text/plain;charset=UTF-8")
