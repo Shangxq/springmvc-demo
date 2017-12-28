@@ -19,7 +19,7 @@ import java.util.Map;
 public class UploadController {
     @Autowired
     MultipartResolver resolver;
-
+    //支持批量上传
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public @ResponseBody
     String upload(HttpServletRequest request) {
