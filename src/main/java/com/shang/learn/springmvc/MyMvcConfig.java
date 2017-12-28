@@ -1,14 +1,18 @@
 package com.shang.learn.springmvc;
 
 import com.shang.learn.springmvc.interceptor.DemoInterceptor;
+import com.shang.learn.springmvc.messageconverter.MyMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import java.util.List;
 
 @Configuration
 @EnableWebMvc
@@ -26,8 +30,8 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
 
     //文件解析器
     @Bean
-    public MultipartResolver multipartResolver(){
-        CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver();
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setMaxUploadSize(1000000);
         multipartResolver.setDefaultEncoding("UTF-8");
         multipartResolver.setResolveLazily(true);
@@ -38,6 +42,11 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
     @Bean
     public DemoInterceptor demoInterceptor() {
         return new DemoInterceptor();
+    }
+
+    @Bean
+    public MyMessageConverter myMessageConverter() {
+        return new MyMessageConverter();
     }
 
     //配置静态文件位置
@@ -57,6 +66,12 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
     public void addViewControllers(final ViewControllerRegistry registry) {
         registry.addViewController("/configIndex").setViewName("/index");
         registry.addViewController("/toUpload").setViewName("/upload");
+        registry.addViewController("/converter").setViewName("converter");
+    }
+
+    @Override
+    public void extendMessageConverters(final List<HttpMessageConverter<?>> converters) {
+        converters.add(myMessageConverter());
     }
 
     //默认忽略后缀名，通过此配置开启匹配后缀名
