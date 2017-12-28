@@ -69,6 +69,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/converter").setViewName("converter");
     }
 
+    //拓展解析方法
     @Override
     public void extendMessageConverters(final List<HttpMessageConverter<?>> converters) {
         converters.add(myMessageConverter());
