@@ -14,6 +14,8 @@ public class WebInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(MyMvcConfig.class);
         ctx.setServletContext(servletContext);
+        //单位min
+        servletContext.setSessionTimeout(30);
         Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);

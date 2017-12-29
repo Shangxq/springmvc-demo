@@ -13,7 +13,6 @@ import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import javax.servlet.SessionCookieConfig;
 import java.util.List;
 
 @Configuration
